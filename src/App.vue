@@ -4,6 +4,7 @@
     <router-link to="/about">About</router-link>|
     <router-link to="/users">users</router-link>|
     <router-link to="/pizzas">Pizzas</router-link>|
+    <router-link to="/ingredients">ingredients</router-link>|
   </nav>
   <router-view/>
 </template>

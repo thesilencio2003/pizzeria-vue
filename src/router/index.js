@@ -4,6 +4,7 @@ import Users from '@/views/Users.vue'
 import Pizzas from '@/views/Pizzas.vue'
 import EditarPizza from '@/components/EditarPizza.vue'
 import NewPizza from '@/components/NewPizza.vue'
+import Ingredients from '@/views/Ingredients.vue'
 
 const routes = [
   {
@@ -38,7 +39,13 @@ const routes = [
     path: '/pizzas/nueva',
     name: 'NewPizza',
     component: NewPizza
-  }
+  },
+  {
+    path: '/ingredients',
+    name: 'Ingredients',
+    component: Ingredients
+  },
+  
 ]
 
 const router = createRouter({
