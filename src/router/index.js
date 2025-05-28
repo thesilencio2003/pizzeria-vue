@@ -13,6 +13,7 @@ import EditarPizzaIngredient from '@/components/EditarPizzaIngredient.vue'
 import ExtraIngredients from '@/views/ExtraIngredients.vue'
 import NewExtraIngredient from '@/components/NewExtraIngredient.vue'
 import EditarExtraIngredient from '@/components/EditarExtraIngredient.vue'
+import NewUser from '@/components/NewUser.vue'
 
 const routes = [
   {
@@ -32,6 +33,11 @@ const routes = [
     path: '/users',
     name: 'users',
     component: Users
+  },
+   {
+    path: '/users/nueva',
+     name: 'NuevoUsuario',
+    component: NewUser
   },
   {
     path: '/pizzas',
