@@ -1,9 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-import EditarOrder from '../components/Order/EditarOrder.vue';
-import NewOrder from '../components/Order/NewOrder.vue';
-import Orders from '../views/Order.vue'; 
-import HomeView from '../views/HomeView.vue';
+import HomeView from '../views/HomeView.vue'
+import Orders from '../views/Order.vue'
+import EditarOrder from '../components/Order/EditarOrder.vue'
+import NewOrder from '../components/Order/NewOrder.vue'
+import AboutView from '../views/AboutView.vue'
 
 const routes = [
   {
@@ -14,22 +15,22 @@ const routes = [
   {
     path: '/orders',
     name: 'Orders',
-    component: Orders 
+    component: Orders
   },
   {
-    path: '/editar-order/:id',
+    path: '/orders/edit/:id',
     name: 'EditarOrder',
     component: EditarOrder
   },
   {
-    path: '/add-order',
+    path: '/orders/new',
     name: 'NewOrder',
     component: NewOrder
   },
   {
     path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue')
+    name: 'About',
+    component: AboutView
   }
 ]
 

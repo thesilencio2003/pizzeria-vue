@@ -1,18 +1,14 @@
 <template>
-  <div class="container py-4">
-    <h1 class="mb-4 d-flex justify-content-between align-items-center">
-      Listado de Pedidos
-      <button @click="newOrder" class="btn btn-success">
-        <font-awesome-icon icon="plus" /> Agregar Pedido
+  <div class="container text-start">
+    <h1 class="text-primary fw-bold">
+      Listado Ordenes |
+      <button @click="newOrder" class="btn btn-success btn-sm mx-2">
+        <font-awesome-icon icon="plus" />
       </button>
     </h1>
 
-    <div v-if="successMessage" class="alert alert-success">
-      {{ successMessage }}
-    </div>
-
-    <table class="table table-striped">
-      <thead>
+    <table class="table table-bordered table-hover">
+      <thead class="table-light text-center">
         <tr>
           <th>ID</th>
           <th>Cliente</th>
@@ -24,18 +20,22 @@
           <th>Acciones</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="text-center">
         <tr v-for="order in orders" :key="order.id">
           <td>{{ order.id }}</td>
           <td>{{ order.client?.user?.name || 'Cliente no asignado' }}</td>
-          <td>{{ order.branch?.name }}</td>
+          <td>{{ order.branch?.name || 'No definido' }}</td>
           <td>{{ formatPrice(order.total_price) }}</td>
           <td>{{ capitalize(order.status) }}</td>
           <td>{{ capitalize(order.delivery_type) }}</td>
-          <td>{{ order.deliveryPerson?.user?.name || 'Repartidor no asignado' }}</td>
+          <td>{{ order.delivery_person?.user?.name || 'Repartidor no asignado' }}</td>
           <td>
-            <button @click="editOrder(order.id)" class="btn btn-primary btn-sm">Editar</button>
-            <button @click="deleteOrder(order.id)" class="btn btn-danger btn-sm mx-1">Eliminar</button>
+            <button @click="editOrder(order.id)" class="btn btn-warning btn-sm mx-1">
+              <font-awesome-icon icon="pencil" />
+            </button>
+            <button @click="deleteOrder(order.id)" class="btn btn-danger btn-sm mx-1">
+              <font-awesome-icon icon="trash" />
+            </button>
           </td>
         </tr>
       </tbody>
@@ -51,34 +51,39 @@ export default {
   name: 'OrderList',
   data() {
     return {
-      orders: [],
-      successMessage: ''
+      orders: []
     };
   },
   methods: {
     formatPrice(value) {
-      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value || 0);
     },
     capitalize(str) {
-      return str?.charAt(0).toUpperCase() + str?.slice(1);
+      return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
     },
     newOrder() {
       this.$router.push({ name: 'NewOrder' });
     },
     editOrder(id) {
-      this.$router.push({ name: 'EditOrder', params: { id } });
+      this.$router.push({ name: 'EditarOrder', params: { id } });
     },
     deleteOrder(id) {
       Swal.fire({
-        title: `¿Estás seguro de eliminar el pedido ${id}?`,
+        title: `¿Deseas eliminar la orden con ID ${id}?`,
         showCancelButton: true,
-        confirmButtonText: 'Eliminar'
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar'
       }).then(result => {
         if (result.isConfirmed) {
           axios.delete(`http://127.0.0.1:8000/api/orders/${id}`)
-            .then(() => {
-              this.loadOrders();
-              this.successMessage = 'Pedido eliminado correctamente';
+            .then(response => {
+              if (response.data.success) {
+                this.orders = response.data.orders;
+                Swal.fire('Orden eliminada correctamente', '', 'success');
+              }
+            })
+            .catch(() => {
+              Swal.fire('Error', 'No se pudo eliminar la orden', 'error');
             });
         }
       });
@@ -86,10 +91,10 @@ export default {
     loadOrders() {
       axios.get('http://127.0.0.1:8000/api/orders')
         .then(response => {
-          this.orders = response.data;
+          this.orders = response.data.orders || [];
         })
         .catch(error => {
-          console.error('Error al cargar los pedidos:', error);
+          console.error('Error al cargar los Orden:', error);
         });
     }
   },
