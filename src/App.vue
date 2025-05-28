@@ -5,6 +5,7 @@
     <router-link to="/users">users</router-link>|
     <router-link to="/pizzas">Pizzas</router-link>|
     <router-link to="/ingredients">ingredients</router-link>|
+    <router-link to="/pizzaingredients">PizzaIngredient</router-link>|
   </nav>
   <router-view/>
 </template>
