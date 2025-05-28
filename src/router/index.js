@@ -16,6 +16,7 @@ import EditarExtraIngredient from '@/components/EditarExtraIngredient.vue'
 import NewUser from '@/components/NewUser.vue'
 import EditarUser from '@/components/EditarUser.vue'
 import Clients from '@/views/Clients.vue'
+import NewClient from '@/components/NewClient.vue'
 
 const routes = [
   {
@@ -111,6 +112,11 @@ const routes = [
     path: '/clients',
     name: 'Clients',
     component: Clients
+  },
+  {
+    path: '/clients/new',
+    name: 'NewClient',
+    component: NewClient
   }
 
 

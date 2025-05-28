@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <h1 class="text-start">Listado de Usuarios |
-            <button @click="newUser()" class="btn btn-success mx-2">
+        <h1 class="text-start">Listado Clientes |
+            <button @click="newClient()" class="btn btn-success mx-2">
                 <font-awesome-icon icon="plus" />
             </button>
         </h1>
@@ -9,25 +9,21 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Relación Empleado</th>
-                    <th scope="col">Relación Cliente</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col">ID Cliente</th>
+                    <th scope="col">Usuario Asociado</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(user, index) in users" :key="index">
+                <tr v-for="(client, index) in clients" :key="index">
                     <th scope="row">{{ index + 1 }}</th>
-                    <td>{{ user.name }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.employee_relation_id ? 'Sí' : 'No' }}</td>
-                    <td>{{ user.client_relation_id ? 'Sí' : 'No' }}</td>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.user_name }}</td>
                     <td>
-                        <button @click="deleteUser(user.id)" class="btn btn-danger mx-2">
+                        <button @click="deleteClient(client.id)" class="btn btn-danger mx-2">
                             <font-awesome-icon icon="trash" />
                         </button>
-                        <button @click="editUser(user.id)" class="btn btn-warning mx-2">
+                        <button @click="editClient(client.id)" class="btn btn-warning mx-2">
                             <font-awesome-icon icon="pencil" />
                         </button>
                     </td>
@@ -42,48 +38,47 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 
 export default {
-    name: 'Clients',
+    name: 'Client',
     data() {
         return {
-            users: []
+            clients: []
         }
     },
     methods: {
-        deleteUser(id) {
+        deleteClient(id) {
             Swal.fire({
-                title: `¿Quieres eliminar el usuario con ID ${id}?`,
+                title: `¿Quieres eliminar el cliente con ID ${id}?`,
                 showCancelButton: true,
                 confirmButtonText: 'Eliminar',
-                cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete(`http://127.0.0.1:8000/api/users/${id}`)
+                    axios.delete(`http://127.0.0.1:8000/api/clients/${id}`)
                         .then(response => {
                             if (response.data.success) {
                                 Swal.fire('¡Eliminado!', '', 'success')
-                                this.users = response.data.users
+                                this.clients = response.data.clients
                             }
                         })
                         .catch(error => {
-                            console.error("Hubo un error al eliminar el usuario:", error);
-                            Swal.fire('Error', 'No se pudo eliminar el usuario.', 'error');
+                            console.error("Hubo un error al eliminar el cliente:", error);
+                            Swal.fire('Error', 'No se pudo eliminar el cliente.', 'error');
                         });
                 }
             })
         },
-        editUser(id) {
-            this.$router.push({ name: 'EditUser', params: { id: `${id}` } }) 
+        editClient(id) {
+            this.$router.push({ name: 'EditClient', params: { id: `${id}` } })
         },
-        newUser() {
-            this.$router.push({ name: 'NewUser' }); 
+        newClient() {
+            this.$router.push({ name: 'NewClient' });
         }
     },
     mounted() {
         axios
-            .get('http://127.0.0.1:8000/api/users')
-            .then(response => (this.users = response.data.users))
+            .get('http://127.0.0.1:8000/api/clients')
+            .then(response => (this.clients = response.data.clients))
             .catch(error => {
-                console.error("Hubo un error al obtener los usuarios:", error);
+                console.error("Hubo un error al obtener los clientes:", error);
             });
     },
 }
