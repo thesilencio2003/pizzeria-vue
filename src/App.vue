@@ -2,6 +2,7 @@
   <div id="app">
     <nav>
       <router-link to="/branches">Ver Sucursales</router-link>
+      <router-link to="/pizza-raw-materials">Ver Materias Primas</router-link>
     </nav>
     <router-view></router-view>
   </div>
