@@ -14,6 +14,7 @@ import ExtraIngredients from '@/views/ExtraIngredients.vue'
 import NewExtraIngredient from '@/components/NewExtraIngredient.vue'
 import EditarExtraIngredient from '@/components/EditarExtraIngredient.vue'
 import NewUser from '@/components/NewUser.vue'
+import EditarUser from '@/components/EditarUser.vue'
 
 const routes = [
   {
@@ -38,6 +39,12 @@ const routes = [
     path: '/users/nueva',
      name: 'NuevoUsuario',
     component: NewUser
+  },
+   {
+    path: '/users/editar/:id', 
+    name: 'EditarUsuario', 
+    props: true,
+    component: EditarUser
   },
   {
     path: '/pizzas',
