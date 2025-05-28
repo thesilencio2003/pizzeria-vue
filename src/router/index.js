@@ -18,6 +18,7 @@ import EditarUser from '@/components/EditarUser.vue'
 import Clients from '@/views/Clients.vue'
 import NewClient from '@/components/NewClient.vue'
 import EditarClient from '@/components/EditarClient.vue'
+import Employees from '@/views/Employees.vue'
 
 const routes = [
   {
@@ -123,7 +124,12 @@ const routes = [
     path: '/clients/edit/:id',
     name: 'EditClient',
     component: EditarClient
-  }
+  },
+  {
+    path: '/employees',
+    name: 'EmployeeList', 
+    component: Employees
+  },
 
 
 ]

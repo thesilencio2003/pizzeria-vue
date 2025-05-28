@@ -8,6 +8,7 @@
     <router-link to="/pizzaingredients">PizzaIngredient</router-link>|
     <router-link to="/extra-ingredients">ExtraIngredient</router-link>|
     <router-link to="/clients">Clients</router-link>|
+    <router-link to="/employees">Employees</router-link>|
   </nav>
   <router-view/>
 </template>
