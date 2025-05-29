@@ -1,10 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import BranchesList from '../components/BranchesList.vue';
 import PizzaRawMaterialsList from '../components/PizzaRawMaterialsList.vue';
+import RawMaterialsList from '../components/RawMaterialsList.vue'; 
 
 const routes = [
   { path: '/branches', component: BranchesList },
-  { path: '/pizza-raw-materials', component: PizzaRawMaterialsList }
+  { path: '/pizza-raw-materials', component: PizzaRawMaterialsList },
+  { path: '/raw_materials', component: RawMaterialsList }
 ];
 
 const router = createRouter({
