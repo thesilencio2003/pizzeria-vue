@@ -26,18 +26,17 @@ import EditarClient from '@/components/EditarClient.vue'
 import Employees from '@/views/Employees.vue'
 import NewEmployee from '@/components/NewEmployee.vue'
 import EditarEmployee from '@/components/EditarEmployee.vue'
-import EditarOrder from '../components/Order/EditarOrder.vue'
-import NewOrder from '../components/Order/NewOrder.vue'
-import EditarOrderPizza from '../components/OrderPizza/EditarOrderPizza.vue'
-import NewOrderPizza from '../components/OrderPizza/NewOrderPizza.vue'
-import EditarPizzaSize from '../components/PizzaSize/EditarPizzaSize.vue'
-import NewPizzaSize from '../components/PizzaSize/NewPizzaSize.vue'
-import OrderExtraIngredient from '../views/OrderExtraIngredient.vue'
-import NewOrderExtraIngredient from '../components/OrderExtraIngredient/NewOrderExtraIngredient.vue'
-import EditarOrderExtraIngredient from '../components/OrderExtraIngredient/EditarOrderExtraIngredient.vue'
-import Orders from '../views/Order.vue'
-import OrderPizza from '../views/OrderPizza.vue'
-import PizzaSize from '../views/PizzaSize.vue'
+import Order from './views/Order.vue';
+import NewOrder from './components/Order/NewOrder.vue';
+import EditarOrder from './components/Order/EditarOrder.vue';
+import OrderPizza from './views/OrderPizza.vue';
+import EditarOrderPizza from './components/OrderPizza/EditarOrderPizza.vue';
+import PizzaSize from './views/PizzaSize.vue';
+import NewPizzaSize from './components/PizzaSize/NewPizzaSize.vue';
+import EditarPizzaSize from './components/PizzaSize/EditarPizzaSize.vue';
+import OrderExtraIngredient from './views/OrderExtraIngredient.vue';
+import NewOrderExtraIngredient from './components/OrderExtraIngredient/NewOrderExtraIngredient.vue';
+import EditarOrderExtraIngredient from './components/OrderExtraIngredient/EditarOrderExtraIngredient.vue';
 
 
 const routes = [
@@ -47,25 +46,25 @@ const routes = [
     component: BranchesList
   },
   {
-    path: '/pizza-raw-materials', 
+    path: '/pizza-raw-materials',
     name: 'PizzaRawMaterials',
     component: PizzaRawMaterialList
   },
   {
-    path: '/raw-materials', 
+    path: '/raw-materials',
     name: 'RawMaterials',
     component: RawMaterialsList
   },
-   {
+  {
     path: '/purchases',
     name: 'PurchasesList',
     component: PurchasesList
   },
   {
-    path: '/suppliers', 
+    path: '/suppliers',
     name: 'SuppliersList',
     component: SuppliersList
-    },
+  },
   {
     path: '/users',
     name: 'users',
@@ -170,60 +169,70 @@ const routes = [
   {
     path: '/employees/edit/:id',
     name: 'EditEmployee',
-  },
-  {
-    path: '/employees/edit/:id',
-    name: 'EditEmployee',
     component: EditarEmployee
   },
-{ 
-    path: '/orders', 
-    name: 'Orders', 
-    component: Orders },
- { 
-    path: '/orders/new', 
-    name: 'NewOrder', 
-    component: NewOrder },
-  { 
-    path: '/orders/edit/:id', 
-    name: 'EditarOrder', 
-    component: EditarOrder },
-  { 
-    path: '/order_pizza', 
-    name: 'OrderPizza', 
-    component: OrderPizza },
-  { 
-    path: '/order_pizza/new', 
-    name: 'NewOrderPizza', 
-    component: NewOrderPizza },
-  { 
-    path: '/order_pizza/edit/:id', 
-    name: 'EditarOrderPizza', 
-    component: EditarOrderPizza },
-  { 
-    path: '/pizza_sizes', 
-    name: 'PizzaSize', 
-    component: PizzaSize },
-  { 
-    path: '/pizza_sizes/new', 
-    name: 'NewPizzaSize', 
-    component: NewPizzaSize },
-  { 
-    path: '/pizza_sizes/edit/:id', 
-    name: 'EditarPizzaSize', 
-    component: EditarPizzaSize },
-  { 
-    path: '/order_extra_ingredient', 
-    name: 'OrderExtraIngredient', 
-    component: OrderExtraIngredient },
-  { 
-    path: '/order_extra_ingredient/new', 
-    name: 'NewOrderExtraIngredient', 
-    component: NewOrderExtraIngredient },
-  { 
-    path: '/order_extra_ingredient/edit/:id', 
-    name: 'EditarOrderExtraIngredient', 
-    component: EditarOrderExtraIngredient }  
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: Order
+  },
+  {
+    path: '/orders/new',
+    name: 'NewOrder',
+    component: NewOrder
+  },
+  {
+    path: '/orders/edit/:id',
+    name: 'EditarOrder',
+    component: EditarOrder
+  },
+  {
+    path: '/order_pizza',
+    name: 'OrderPizza',
+    component: OrderPizza
+  },
+  {
+    path: '/order_pizza/new',
+    name: 'NewOrderPizza',
+    component: NewOrder
+  },
+  {
+    path: '/order_pizza/edit/:id',
+    name: 'EditarOrderPizza',
+    component: EditarOrderPizza
+  },
+  {
+    path: '/pizza_sizes',
+    name: 'PizzaSize',
+    component: PizzaSize
+  },
+  {
+    path: '/pizza_sizes/new',
+    name: 'NewPizzaSize',
+    component: NewPizzaSize
+  },
+  {
+    path: '/pizza_sizes/edit/:id',
+    name: 'EditarPizzaSize',
+    component: EditarPizzaSize
+  },
+  {
+    path: '/order_extra_ingredient',
+    name: 'OrderExtraIngredient',
+    component: OrderExtraIngredient
+  },
+  {
+    path: '/order_extra_ingredient/new',
+    name: 'NewOrderExtraIngredient',
+    component: NewOrderExtraIngredient
+  },
+  {
+    path: '/order_extra_ingredient/edit/:id',
+    name: 'EditarOrderExtraIngredient',
+    component: EditarOrderExtraIngredient
+  }
+
+
 
 ];
 
