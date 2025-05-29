@@ -9,6 +9,8 @@
     <router-link to="/extra-ingredients">ExtraIngredient</router-link>|
     <router-link to="/clients">Clients</router-link>|
     <router-link to="/employees">Employees</router-link>|
+    <router-link to="/branches">Ver Sucursales</router-link>|
+      <router-link to="/pizza-raw-materials">Ver Materias Primas</router-link>
   </nav>
   <router-view/>
 </template>

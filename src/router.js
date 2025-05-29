@@ -35,116 +35,116 @@ const routes = [
     name: 'PizzaRawMaterials',
     component: PizzaRawMaterialList
   },
-   {
-      path: '/users',
-      name: 'users',
-      component: Users
-    },
-    {
-      path: '/users/nueva',
-      name: 'NuevoUsuario',
-      component: NewUser
-    },
-    {
-      path: '/users/editar/:id',
-      name: 'EditarUsuario',
-      props: true,
-      component: EditarUser
-    },
-    {
-      path: '/pizzas',
-      name: 'Pizzas',
-      component: Pizzas
-    },
-    {
-      path: '/pizzas/editar/:id',
-      name: 'EditarPizza',
-      component: EditarPizza
-    },
-    {
-      path: '/pizzas/nueva',
-      name: 'NewPizza',
-      component: NewPizza
-    },
-    {
-      path: '/ingredients',
-      name: 'Ingredients',
-      component: Ingredients
-    },
-    {
-      path: '/ingredients/nueva',
-      name: 'NewIngredient',
-      component: NewIngredient
-    },
-    {
-      path: '/ingredients/editar/:id',
-      name: 'EditarIngredient',
-      component: EditarIngredient
-    },
-    {
-      path: '/pizzaingredients',
-      name: 'PizzaIngredients',
-      component: PizzaIngredients
-    },
-    {
-      path: '/pizzaingredients/nueva',
-      name: 'NewPizzaIngredient',
-      component: NewPizzaIngredient
-    },
-    {
-      path: '/pizza-ingredients/edit/:id',
-      name: 'EditarPizzaIngredient',
-      component: EditarPizzaIngredient
-    },
-    {
-      path: '/extra-ingredients',
-      name: 'ExtraIngredients',
-      component: ExtraIngredients
-    },
-    {
-      path: '/extra-ingredients/new',
-      name: 'NewExtraIngredient',
-      component: NewExtraIngredient
-    },
-    {
-      path: '/extra-ingredients/edit/:id',
-      name: 'EditarExtraIngredient',
-      component: EditarExtraIngredient
-    },
-    {
-      path: '/clients',
-      name: 'Clients',
-      component: Clients
-    },
-    {
-      path: '/clients/new',
-      name: 'NewClient',
-      component: NewClient
-    },
-    {
-      path: '/clients/edit/:id',
-      name: 'EditClient',
-      component: EditarClient
-    },
-    {
-      path: '/employees',
-      name: 'EmployeeList',
-      component: Employees
-    },
-    {
-      path: '/employees/new',
-      name: 'NewEmployee',
-      component: NewEmployee
-    },
-    {
-      path: '/employees/edit/:id',
-      name: 'EditEmployee',
-    },
-    {
-      path: '/employees/edit/:id',
-      name: 'EditEmployee',
-      component: EditarEmployee
-    }
+  {
+    path: '/users',
+    name: 'users',
+    component: Users
+  },
+  {
+    path: '/users/nueva',
+    name: 'NuevoUsuario',
+    component: NewUser
+  },
+  {
+    path: '/users/editar/:id',
+    name: 'EditarUsuario',
+    props: true,
+    component: EditarUser
+  },
+  {
+    path: '/pizzas',
+    name: 'Pizzas',
+    component: Pizzas
+  },
+  {
+    path: '/pizzas/editar/:id',
+    name: 'EditarPizza',
+    component: EditarPizza
+  },
+  {
+    path: '/pizzas/nueva',
+    name: 'NewPizza',
+    component: NewPizza
+  },
+  {
+    path: '/ingredients',
+    name: 'Ingredients',
+    component: Ingredients
+  },
+  {
+    path: '/ingredients/nueva',
+    name: 'NewIngredient',
+    component: NewIngredient
+  },
+  {
+    path: '/ingredients/editar/:id',
+    name: 'EditarIngredient',
+    component: EditarIngredient
+  },
+  {
+    path: '/pizzaingredients',
+    name: 'PizzaIngredients',
+    component: PizzaIngredients
+  },
+  {
+    path: '/pizzaingredients/nueva',
+    name: 'NewPizzaIngredient',
+    component: NewPizzaIngredient
+  },
+  {
+    path: '/pizza-ingredients/edit/:id',
+    name: 'EditarPizzaIngredient',
+    component: EditarPizzaIngredient
+  },
+  {
+    path: '/extra-ingredients',
+    name: 'ExtraIngredients',
+    component: ExtraIngredients
+  },
+  {
+    path: '/extra-ingredients/new',
+    name: 'NewExtraIngredient',
+    component: NewExtraIngredient
+  },
+  {
+    path: '/extra-ingredients/edit/:id',
+    name: 'EditarExtraIngredient',
+    component: EditarExtraIngredient
+  },
+  {
+    path: '/clients',
+    name: 'Clients',
+    component: Clients
+  },
+  {
+    path: '/clients/new',
+    name: 'NewClient',
+    component: NewClient
+  },
+  {
+    path: '/clients/edit/:id',
+    name: 'EditClient',
+    component: EditarClient
+  },
+  {
+    path: '/employees',
+    name: 'EmployeeList',
+    component: Employees
+  },
+  {
+    path: '/employees/new',
+    name: 'NewEmployee',
+    component: NewEmployee
+  },
+  {
+    path: '/employees/edit/:id',
+    name: 'EditEmployee',
+  },
+  {
+    path: '/employees/edit/:id',
+    name: 'EditEmployee',
+    component: EditarEmployee
+  }
 ];
 
 const router = createRouter({
