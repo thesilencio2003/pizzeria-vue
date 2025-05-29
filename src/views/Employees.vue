@@ -11,7 +11,11 @@
                     <th scope="col">#</th>
                     <th scope="col">ID Empleado</th>
                     <th scope="col">ID Usuario</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Posición</th>
+                    <th scope="col">Identificación</th>
+                    <th scope="col">Salario</th>
+                    <th scope="col">Fecha Contratación</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +23,10 @@
                     <th scope="row">{{ index + 1 }}</th>
                     <td>{{ employee.id }}</td>
                     <td>{{ employee.user_id }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.identification_number }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.hire_date }}</td>
                     <td>
                         <button @click="deleteEmployee(employee.id)" class="btn btn-danger mx-2">
                             <font-awesome-icon icon="trash" />
@@ -41,22 +49,22 @@ export default {
     name: 'Employees',
     data() {
         return {
-            employees: [] 
+            employees: []
         }
     },
     methods: {
-        deleteEmployee(id) { 
+        deleteEmployee(id) {
             Swal.fire({
                 title: `¿Quieres eliminar el empleado con ID ${id}?`,
                 showCancelButton: true,
                 confirmButtonText: 'Eliminar',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete(`http://127.0.0.1:8000/api/employees/${id}`) 
+                    axios.delete(`http://127.0.0.1:8000/api/employees/${id}`)
                         .then(response => {
                             if (response.data.success) {
                                 Swal.fire('¡Eliminado!', '', 'success')
-                                this.employees = response.data.employees 
+                                this.employees = response.data.employees
                             }
                         })
                         .catch(error => {
@@ -66,17 +74,17 @@ export default {
                 }
             })
         },
-        editEmployee(id) { 
-            this.$router.push({ name: 'EditEmployee', params: { id: `${id}` } }) 
+        editEmployee(id) {
+            this.$router.push({ name: 'EditEmployee', params: { id: `${id}` } })
         },
-        newEmployee() { 
-            this.$router.push({ name: 'NewEmployee' }); 
+        newEmployee() {
+            this.$router.push({ name: 'NewEmployee' });
         }
     },
     mounted() {
         axios
-            .get('http://127.0.0.1:8000/api/employees') 
-            .then(response => (this.employees = response.data.employees)) 
+            .get('http://127.0.0.1:8000/api/employees')
+            .then(response => (this.employees = response.data.employees))
             .catch(error => {
                 console.error("Hubo un error al obtener los empleados:", error);
             });

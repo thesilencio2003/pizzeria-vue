@@ -19,6 +19,8 @@ import Clients from '@/views/Clients.vue'
 import NewClient from '@/components/NewClient.vue'
 import EditarClient from '@/components/EditarClient.vue'
 import Employees from '@/views/Employees.vue'
+import NewEmployee from '@/components/NewEmployee.vue'
+import EditarEmployee from '@/components/EditarEmployee.vue'
 
 const routes = [
   {
@@ -39,14 +41,14 @@ const routes = [
     name: 'users',
     component: Users
   },
-   {
+  {
     path: '/users/nueva',
-     name: 'NuevoUsuario',
+    name: 'NuevoUsuario',
     component: NewUser
   },
-   {
-    path: '/users/editar/:id', 
-    name: 'EditarUsuario', 
+  {
+    path: '/users/editar/:id',
+    name: 'EditarUsuario',
     props: true,
     component: EditarUser
   },
@@ -127,10 +129,23 @@ const routes = [
   },
   {
     path: '/employees',
-    name: 'EmployeeList', 
+    name: 'EmployeeList',
     component: Employees
   },
-
+  {
+    path: '/employees/new',
+    name: 'NewEmployee',
+    component: NewEmployee
+  },
+  {
+    path: '/employees/edit/:id',
+    name: 'EditEmployee',
+  },
+  {
+    path: '/employees/edit/:id',
+    name: 'EditEmployee',
+    component: EditarEmployee
+  }
 
 ]
 
