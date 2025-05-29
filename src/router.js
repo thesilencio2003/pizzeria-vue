@@ -1,5 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHashHistory } from 'vue-router';
+import BranchesList from './components/BranchesList.vue';
+import PizzaRawMaterialList from './components/PizzaRawMaterialList.vue';
+import RawMaterialsList from './components/RawMaterialsList.vue';
+import PurchasesList from './components/PurchasesList.vue';
+import SuppliersList from './components/SuppliersList.vue';
+
 import Users from '@/views/Users.vue'
 import Pizzas from '@/views/Pizzas.vue'
 import EditarPizza from '@/components/EditarPizza.vue'
@@ -21,9 +26,6 @@ import EditarClient from '@/components/EditarClient.vue'
 import Employees from '@/views/Employees.vue'
 import NewEmployee from '@/components/NewEmployee.vue'
 import EditarEmployee from '@/components/EditarEmployee.vue'
-import RawMaterialsList from '../components/RawMaterialsList.vue'
-import PurchasesList from './components/PurchasesList.vue'
-import SuppliersList from '../components/SuppliersList.vue'
 import EditarOrder from '../components/Order/EditarOrder.vue'
 import NewOrder from '../components/Order/NewOrder.vue'
 import EditarOrderPizza from '../components/OrderPizza/EditarOrderPizza.vue'
@@ -39,24 +41,31 @@ import PizzaSize from '../views/PizzaSize.vue'
 
 
 const routes = [
-  { path: '/branches', component: BranchesList },
-  { path: '/pizza-raw-materials', component: PizzaRawMaterialsList },
-  { path: '/raw_materials', component: RawMaterialsList },
-  { path: '/purchases', component: PurchasesList },
-  { path: '/suppliers', component: SuppliersList },
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/branches',
+    name: 'Branches',
+    component: BranchesList
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/pizza-raw-materials', 
+    name: 'PizzaRawMaterials',
+    component: PizzaRawMaterialList
   },
+  {
+    path: '/raw-materials', 
+    name: 'RawMaterials',
+    component: RawMaterialsList
+  },
+   {
+    path: '/purchases',
+    name: 'PurchasesList',
+    component: PurchasesList
+  },
+  {
+    path: '/suppliers', 
+    name: 'SuppliersList',
+    component: SuppliersList
+    },
   {
     path: '/users',
     name: 'users',
@@ -167,11 +176,11 @@ const routes = [
     name: 'EditEmployee',
     component: EditarEmployee
   },
-  { 
+{ 
     path: '/orders', 
     name: 'Orders', 
     component: Orders },
-   { 
+ { 
     path: '/orders/new', 
     name: 'NewOrder', 
     component: NewOrder },
@@ -214,13 +223,13 @@ const routes = [
   { 
     path: '/order_extra_ingredient/edit/:id', 
     name: 'EditarOrderExtraIngredient', 
-    component: EditarOrderExtraIngredient }
+    component: EditarOrderExtraIngredient }  
 
-]
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
-})
+});
 
 export default router;

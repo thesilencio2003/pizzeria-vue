@@ -10,10 +10,17 @@
     <router-link to="/clients">Clients</router-link>|
     <router-link to="/employees">Employees</router-link>|
     <router-link to="/branches">Ver Sucursales</router-link>|
-    <router-link to="/pizza-raw-materials">Ver Materias Primas</router-link> |
-    
-  </nav>
-  <router-view/>
+    <router-link to="/pizza-raw-materials">Ver Materias Primas</router-link>
+    <router-link to="/raw-materials">Ver Materias Primas Base</router-link>
+    <router-link to="/purchases">Ver Compras</router-link> 
+    <router-link to="/suppliers">Ver Proveedores</router-link>
+    <router-link to="/orders">Order</router-link> |
+    <router-link to="/order_pizza">Order Pizza</router-link> |
+    <router-link to="/pizza_sizes">Pizza Size</router-link> |
+    <router-link to="/order_extra_ingredient">Order Extra Ingredient</router-link> |
+
+    </nav>
+    <router-view></router-view>
 </template>
 
 <style>
