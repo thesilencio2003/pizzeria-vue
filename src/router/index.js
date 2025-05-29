@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Orders from '../views/Order.vue'
 import OrderPizza from '../views/OrderPizza.vue'
+import PizzaSize from '../views/PizzaSize.vue'
 import AboutView from '../views/AboutView.vue'
 
 // Componentes Order
@@ -13,6 +14,10 @@ import NewOrder from '../components/Order/NewOrder.vue'
 // Componentes OrderPizza
 import EditarOrderPizza from '../components/OrderPizza/EditarOrderPizza.vue'
 import NewOrderPizza from '../components/OrderPizza/NewOrderPizza.vue'
+
+// Componentes PizzaSize
+import EditarPizzaSize from '../components/PizzaSize/EditarPizzaSize.vue'
+import NewPizzaSize from '../components/PizzaSize/NewPizzaSize.vue'
 
 const routes = [
   {
@@ -49,6 +54,21 @@ const routes = [
     path: '/order_pizza/edit/:id',
     name: 'EditarOrderPizza',
     component: EditarOrderPizza
+  },
+  {
+    path: '/pizza_sizes',
+    name: 'PizzaSize',
+    component: PizzaSize
+  },
+  {
+    path: '/pizza_sizes/new',
+    name: 'NewPizzaSize',
+    component: NewPizzaSize
+  },
+  {
+    path: '/pizza_sizes/edit/:id',
+    name: 'EditarPizzaSize',
+    component: EditarPizzaSize
   },
   {
     path: '/about',
