@@ -13,7 +13,8 @@
     <router-link to="/pizza-raw-materials">Ver Materias Primas</router-link> |
     <router-link to="/orders">Order</router-link> |
     <router-link to="/order_pizza">Order Pizza</router-link> |
-    <router-link to="/pizza_sizes">Pizza Size</router-link> 
+    <router-link to="/pizza_sizes">Pizza Size</router-link> |
+    <router-link to="/order_extra_ingredient">Order Extra Ingredient</router-link> |
   </nav>
   <router-view/>
 </template>

@@ -31,6 +31,10 @@ import EditarOrderPizza from '../components/OrderPizza/EditarOrderPizza.vue'
 import NewOrderPizza from '../components/OrderPizza/NewOrderPizza.vue'
 import EditarPizzaSize from '../components/PizzaSize/EditarPizzaSize.vue'
 import NewPizzaSize from '../components/PizzaSize/NewPizzaSize.vue'
+import OrderExtraIngredient from '../views/OrderExtraIngredient.vue'
+import NewOrderExtraIngredient from '../components/OrderExtraIngredient/NewOrderExtraIngredient.vue'
+import EditarOrderExtraIngredient from '../components/OrderExtraIngredient/EditarOrderExtraIngredient.vue'
+
 
 const routes = [
   { 
@@ -162,7 +166,20 @@ const routes = [
   { 
     path: '/pizza_sizes/edit/:id', 
     name: 'EditarPizzaSize', 
-    component: EditarPizzaSize }
+    component: EditarPizzaSize },
+  { 
+    path: '/order_extra_ingredient', 
+    name: 'OrderExtraIngredient', 
+    component: OrderExtraIngredient },
+  { 
+    path: '/order_extra_ingredient/new', 
+    name: 'NewOrderExtraIngredient', 
+    component: NewOrderExtraIngredient },
+  { 
+    path: '/order_extra_ingredient/edit/:id', 
+    name: 'EditarOrderExtraIngredient', 
+    component: EditarOrderExtraIngredient }
+    
 ]
 
 const router = createRouter({

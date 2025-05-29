@@ -1,7 +1,7 @@
 <template>
   <div class="container text-start">
     <h1 class="text-primary fw-bold">
-      Listado Ordenes |
+      Listado de Órdenes |
       <button @click="newOrder" class="btn btn-success btn-sm mx-2">
         <font-awesome-icon icon="plus" />
       </button>
@@ -23,12 +23,12 @@
       <tbody class="text-center">
         <tr v-for="order in orders" :key="order.id">
           <td>{{ order.id }}</td>
-          <td>{{ order.client?.user?.name || 'Cliente no asignado' }}</td>
-          <td>{{ order.branch?.name || 'No definido' }}</td>
+          <td>{{ order.client?.user?.name ?? 'Sin cliente' }}</td>
+          <td>{{ order.branch?.name ?? 'Sin sucursal' }}</td>
           <td>{{ formatPrice(order.total_price) }}</td>
           <td>{{ capitalize(order.status) }}</td>
           <td>{{ capitalize(order.delivery_type) }}</td>
-          <td>{{ order.delivery_person?.user?.name || 'Repartidor no asignado' }}</td>
+          <td>{{ order.delivery_person?.user?.name ?? 'Sin repartidor' }}</td>
           <td>
             <button @click="editOrder(order.id)" class="btn btn-warning btn-sm mx-1">
               <font-awesome-icon icon="pencil" />
@@ -38,34 +38,40 @@
             </button>
           </td>
         </tr>
+        <tr v-if="orders.length === 0">
+          <td colspan="8">No hay órdenes registradas.</td>
+        </tr>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export default {
   name: 'OrderList',
   data() {
     return {
       orders: []
-    };
+    }
   },
   methods: {
     formatPrice(value) {
-      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value || 0);
+      return new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP'
+      }).format(value || 0)
     },
     capitalize(str) {
-      return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+      return str ? str.charAt(0).toUpperCase() + str.slice(1) : ''
     },
     newOrder() {
-      this.$router.push({ name: 'NewOrder' });
+      this.$router.push({ name: 'NewOrder' })
     },
     editOrder(id) {
-      this.$router.push({ name: 'EditarOrder', params: { id } });
+      this.$router.push({ name: 'EditarOrder', params: { id } })
     },
     deleteOrder(id) {
       Swal.fire({
@@ -76,32 +82,30 @@ export default {
       }).then(result => {
         if (result.isConfirmed) {
           axios.delete(`http://127.0.0.1:8000/api/orders/${id}`)
-            .then(response => {
-              if (response.data.success) {
-                this.orders = response.data.orders;
-                Swal.fire('Orden eliminada correctamente', '', 'success');
-              }
+            .then(() => {
+              this.loadOrders()
+              Swal.fire('Orden eliminada correctamente', '', 'success')
             })
             .catch(() => {
-              Swal.fire('Error', 'No se pudo eliminar la orden', 'error');
-            });
+              Swal.fire('Error', 'No se pudo eliminar la orden', 'error')
+            })
         }
-      });
+      })
     },
     loadOrders() {
       axios.get('http://127.0.0.1:8000/api/orders')
         .then(response => {
-          this.orders = response.data.orders || [];
+          this.orders = response.data.orders || []
         })
         .catch(error => {
-          console.error('Error al cargar los Orden:', error);
-        });
+          console.error('Error al cargar las órdenes:', error)
+        })
     }
   },
   mounted() {
-    this.loadOrders();
+    this.loadOrders()
   }
-};
+}
 </script>
 
 <style scoped>
