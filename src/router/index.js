@@ -1,10 +1,18 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+// Vistas principales
 import HomeView from '../views/HomeView.vue'
 import Orders from '../views/Order.vue'
+import OrderPizza from '../views/OrderPizza.vue'
+import AboutView from '../views/AboutView.vue'
+
+// Componentes Order
 import EditarOrder from '../components/Order/EditarOrder.vue'
 import NewOrder from '../components/Order/NewOrder.vue'
-import AboutView from '../views/AboutView.vue'
+
+// Componentes OrderPizza
+import EditarOrderPizza from '../components/OrderPizza/EditarOrderPizza.vue'
+import NewOrderPizza from '../components/OrderPizza/NewOrderPizza.vue'
 
 const routes = [
   {
@@ -18,14 +26,29 @@ const routes = [
     component: Orders
   },
   {
+    path: '/orders/new',
+    name: 'NewOrder',
+    component: NewOrder
+  },
+  {
     path: '/orders/edit/:id',
     name: 'EditarOrder',
     component: EditarOrder
   },
   {
-    path: '/orders/new',
-    name: 'NewOrder',
-    component: NewOrder
+    path: '/order_pizza',
+    name: 'OrderPizza',
+    component: OrderPizza
+  },
+  {
+    path: '/order_pizza/new',
+    name: 'NewOrderPizza',
+    component: NewOrderPizza
+  },
+  {
+    path: '/order_pizza/edit/:id',
+    name: 'EditarOrderPizza',
+    component: EditarOrderPizza
   },
   {
     path: '/about',
