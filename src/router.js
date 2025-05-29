@@ -3,7 +3,7 @@ import BranchesList from './components/BranchesList.vue';
 import PizzaRawMaterialList from './components/PizzaRawMaterialList.vue';
 import RawMaterialsList from './components/RawMaterialsList.vue';
 import PurchasesList from './components/PurchasesList.vue';
-
+import SuppliersList from './components/SuppliersList.vue';
 
 
 const routes = [
@@ -27,6 +27,11 @@ const routes = [
     name: 'PurchasesList',
     component: PurchasesList
   },
+  {
+    path: '/suppliers', 
+    name: 'SuppliersList',
+    component: SuppliersList
+  }
 ];
 
 const router = createRouter({
