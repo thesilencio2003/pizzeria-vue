@@ -1,6 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import BranchesList from './components/BranchesList.vue';
 import PizzaRawMaterialList from './components/PizzaRawMaterialList.vue';
+import RawMaterialsList from './components/RawMaterialsList.vue';
+import PurchasesList from './components/PurchasesList.vue';
+import SuppliersList from './components/SuppliersList.vue';
+
 import Users from '@/views/Users.vue'
 import Pizzas from '@/views/Pizzas.vue'
 import EditarPizza from '@/components/EditarPizza.vue'
@@ -35,6 +39,21 @@ const routes = [
     name: 'PizzaRawMaterials',
     component: PizzaRawMaterialList
   },
+  {
+    path: '/raw-materials', 
+    name: 'RawMaterials',
+    component: RawMaterialsList
+  },
+   {
+    path: '/purchases',
+    name: 'PurchasesList',
+    component: PurchasesList
+  },
+  {
+    path: '/suppliers', 
+    name: 'SuppliersList',
+    component: SuppliersList
+    },
   {
     path: '/users',
     name: 'users',

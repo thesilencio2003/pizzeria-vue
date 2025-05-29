@@ -11,8 +11,11 @@
     <router-link to="/employees">Employees</router-link>|
     <router-link to="/branches">Ver Sucursales</router-link>|
       <router-link to="/pizza-raw-materials">Ver Materias Primas</router-link>
-  </nav>
-  <router-view/>
+      <router-link to="/raw-materials">Ver Materias Primas Base</router-link>
+      <router-link to="/purchases">Ver Compras</router-link> 
+      <router-link to="/suppliers">Ver Proveedores</router-link>
+    </nav>
+    <router-view></router-view>
 </template>
 
 <style>
