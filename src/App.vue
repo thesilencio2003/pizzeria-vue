@@ -1,11 +1,16 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/branches">Ver Sucursales</router-link>
-      <router-link to="/pizza-raw-materials">Ver Materias Primas</router-link>
-    </nav>
-    <router-view></router-view>
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>|
+    <router-link to="/users">users</router-link>|
+    <router-link to="/pizzas">Pizzas</router-link>|
+    <router-link to="/ingredients">ingredients</router-link>|
+    <router-link to="/pizzaingredients">PizzaIngredient</router-link>|
+    <router-link to="/extra-ingredients">ExtraIngredient</router-link>|
+    <router-link to="/clients">Clients</router-link>|
+    <router-link to="/employees">Employees</router-link>|
+  </nav>
+  <router-view/>
 </template>
 
 <style>
